@@ -273,7 +273,7 @@ class User extends CI_Controller
     {
         $data['title'] = "Pendaftaran";
         $data['role'] = $this->db->get('pendaftaran')->result_array();
-        $data['users'] = $this->db->get_where('users', ['users.id_role' => 3])->result_array();
+        $data['users'] = $this->db->get_where('users', ['users.id_role' => 2])->result_array();
 
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar', $data);
@@ -282,7 +282,7 @@ class User extends CI_Controller
     }
     public function aksi_insert_pendaftaran()
     {
-        $data['users'] = $this->db->get_where('users', ['users.id_role' => 3])->result_array();
+        $data['users'] = $this->db->get('users', ['users.id_role' => 2])->result_array();
 
         $id_users = $this->input->post('id_user');
         $nama_lengkap = $this->input->post('nama_lengkap');
@@ -327,7 +327,7 @@ class User extends CI_Controller
     }
     public function aksi_update_pendaftaran()
     {
-        $data['users'] = $this->db->get_where('users', ['users.id_role' => 3])->result_array();
+        $data['users'] = $this->db->get_where('users', ['users.id_role' => 2])->result_array();
 
         $id = $this->input->post('id');
         $nama_lengkap = $this->input->post('nama_lengkap');
