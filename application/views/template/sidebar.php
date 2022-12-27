@@ -4,12 +4,12 @@
                 <div class="sidebar-content">
                     <div class="user">
                         <div class="avatar-sm float-left mr-2">
-                            <img src="<?= base_url() ?>/assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                            <img src="<?= base_url() ?>/assets/img/yani1.png" alt="..." class="avatar-img rounded-circle">
                         </div>
                         <div class="info">
                             <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                                 <span>
-                                    Hizrian
+                                    Yani Fitria
                                     <span class="user-level">Administrator</span>
                                     <span class="caret"></span>
                                 </span>
@@ -39,7 +39,7 @@
                     </div>
                     <ul class="nav nav-primary">
                         <li class="nav-item">
-                            <a data-toggle="collapse" href="<?= base_url('user/index') ?>" aria-expanded="false">
+                            <a href="<?= base_url('user/index') ?>" aria-expanded="false">
                                 <i class="fas fa-home"></i>
                                 <p>Dashboard</p>
                             </a>
@@ -87,7 +87,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('user/jadwal_dokter') ?>" aria-expanded="false">
+                            <a href="<?= base_url('user/pemeriksaan') ?>" aria-expanded="false">
                                 <i class="fas fa-home"></i>
                                 <p>Pemerikasaan</p>
                             </a>

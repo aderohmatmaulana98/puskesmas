@@ -26,7 +26,7 @@
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= base_url() ?>/assets/css/atlantis.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/css/atlantis.css">
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/css/demo.css">
@@ -39,7 +39,7 @@
             <div class="logo-header" data-background-color="blue">
 
                 <a href="index.html" class="logo">
-                    <img src="<?= base_url() ?>/assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
+                    <img src="<?= base_url() ?>/assets/img/logoku.png" alt="navbar brand" width="50" class="navbar-brand"><span style="font-size: small;">Puskesmas Patuk II</span>
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon">
@@ -93,7 +93,7 @@
                                         <div class="notif-center">
                                             <a href="#">
                                                 <div class="notif-img">
-                                                    <img src="<?= base_url() ?>/assets/img/jm_denis.jpg" alt="Img Profile">
+                                                    <img src="<?= base_url() ?>/assets/img/yani1.png" alt="Img Profile">
                                                 </div>
                                                 <div class="notif-content">
                                                     <span class="subject">Jimmy Denis</span>
@@ -261,16 +261,16 @@
                         <li class="nav-item dropdown hidden-caret">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                                 <div class="avatar-sm">
-                                    <img src="<?= base_url() ?>/assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                                    <img src="<?= base_url() ?>/assets/img/yani1.png" alt="..." class="avatar-img rounded-circle">
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-user animated fadeIn">
                                 <div class="dropdown-user-scroll scrollbar-outer">
                                     <li>
                                         <div class="user-box">
-                                            <div class="avatar-lg"><img src="<?= base_url() ?>/assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
+                                            <div class="avatar-lg"><img src="<?= base_url() ?>/assets/img/yani1.png" alt="image profile" class="avatar-img rounded"></div>
                                             <div class="u-text">
-                                                <h4>Hizrian</h4>
+                                                <h4>Yani Fitria</h4>
                                                 <p class="text-muted">hello@example.com</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                             </div>
                                         </div>

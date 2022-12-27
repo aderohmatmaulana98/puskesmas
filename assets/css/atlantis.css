@@ -1376,7 +1376,7 @@ body {
   background: #1f283e !important; }
 
 .logo-header[data-background-color="blue"] {
-  background: #1572E8 !important; }
+  background: #fcc2d7 !important; }
 
 .logo-header[data-background-color="blue2"] {
   background: #1269DB !important; }
@@ -1385,7 +1385,7 @@ body {
   background: #1572E8 !important; }
 
 .navbar-header[data-background-color="blue2"] {
-  background: #1269DB !important; }
+  background: #fcc2d7 !important; }
 
 .logo-header[data-background-color="purple"] {
   background: #6861CE !important; }
@@ -8932,7 +8932,7 @@ body {
 .bg-primary-gradient {
   background: #1572E8 !important;
   background: -webkit-linear-gradient(legacy-direction(-45deg), #06418E, #1572E8) !important;
-  background: linear-gradient(-45deg, #06418E, #1572E8) !important; }
+  background: linear-gradient(-45deg, #f783ac, #f783ac) !important; }
 
 .bg-secondary-gradient {
   background: #6861CE !important;

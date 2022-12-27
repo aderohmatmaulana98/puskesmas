@@ -576,4 +576,177 @@ class User extends CI_Controller
             '</div>');
         redirect('user/dokter');
     }
+    public function jadwal_dokter()
+    {
+        $data['title'] = "Jadwal Dokter";
+
+        $sql = "SELECT * FROM jadwal_dokter";
+        $data['jadwal_dokter'] = $this->db->query($sql)->result_array();
+        $data['query'] = "SELECT * FROM jadwal_dokter";
+        $this->load->view('template/header', $data);
+        $this->load->view('template/sidebar', $data);
+        $this->load->view('user/jadwal_dokter', $data);
+        $this->load->view('template/footer');
+    }
+    public function insert_jadwal_dokter()
+    {
+        $data['title'] = "Jadwal Dokter";
+        $data['dokter'] = $this->db->get('dokter')->result_array();
+
+        $this->load->view('template/header', $data);
+        $this->load->view('template/sidebar', $data);
+        $this->load->view('user/insert_jadwal_dokter', $data);
+        $this->load->view('template/footer');
+    }
+    public function aksi_insert_jadwal_dokter()
+    {
+        $id_dokter = $this->input->post('id_dokter');
+        $hari = $this->input->post('hari');
+        $dari_jam = $this->input->post('dari_jam');
+        $sampai_jam = $this->input->post('sampai_jam');
+        $date_created = $this->input->post('date_created');
+
+        $sql = "INSERT INTO jadwal_dokter (id, id_dokter,hari, dari_jam, sampai_jam, date_created, update_created)
+                VALUES ('','$id_dokter', '$hari', '$dari_jam', '$sampai_jam','$date_created', NULL)";
+        $this->db->query($sql);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert" >' . $sql .
+            '</div>');
+        redirect('user/insert_jadwal_dokter');
+    }
+    public function update_jadwal_dokter($id)
+    {
+        $data['title'] = "Jadwal Dokter";
+        $sql = "SELECT * FROM jadwal_dokter WHERE jadwal_dokter.id = $id";
+        $data['jadwal_dokter'] = $this->db->query($sql)->row_array();
+        $data['dokter'] = $this->db->get('dokter')->result_array();
+        $data['query'] = "SELECT * FROM jadwal_dokter WHERE jadwal_dokter.id = $id";
+        // var_dump($data['role']);
+        // die;
+        $this->load->view('template/header', $data);
+        $this->load->view('template/sidebar', $data);
+        $this->load->view('user/update_jadwal_dokter', $data);
+        $this->load->view('template/footer');
+    }
+    public function aksi_update_jadwal_dokter()
+    {
+        $id = $this->input->post('id');
+        $id_dokter = $this->input->post('id_dokter');
+        $hari = $this->input->post('hari');
+        $dari_jam = $this->input->post('dari_jam');
+        $sampai_jam = $this->input->post('sampai_jam');
+        $date_created = $this->input->post('date_created');
+        $update_created = $this->input->post('update_created');
+
+        $sql = "UPDATE jadwal_dokter
+                SET id_dokter = '$id_dokter',hari = '$hari',dari_jam = '$dari_jam',sampai_jam = '$sampai_jam', date_created = '$date_created', update_created = '$update_created'
+                WHERE jadwal_dokter.id = $id";
+
+        $this->db->query($sql);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert" >' . $sql .
+
+            '</div>');
+        redirect('user/update_jadwal_dokter/' . $id);
+    }
+    public function delete_jadwal_dokter($id)
+    {
+        $sql = "DELETE FROM jadwal_dokter WHERE jadwal_dokter.id = $id";
+        $this->db->query($sql);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert" >' . $sql .
+
+            '</div>');
+        redirect('user/jadwal_dokter');
+    }
+    public function pemeriksaan()
+    {
+        $data['title'] = "pemeriksaan";
+
+        $sql = "SELECT * FROM pemeriksaan";
+        $data['pemeriksaan'] = $this->db->query($sql)->result_array();
+        $data['query'] = "SELECT * FROM pemeriksaan";
+        $this->load->view('template/header', $data);
+        $this->load->view('template/sidebar', $data);
+        $this->load->view('user/pemeriksaan', $data);
+        $this->load->view('template/footer');
+    }
+    public function insert_pemeriksaan()
+    {
+        $data['title'] = "Pemeriksaan";
+        $data['pemeriksaan'] = $this->db->get('pemeriksaan')->result_array();
+        $data['kajian_awal'] = $this->db->get('kajian_awal')->result_array();
+        $data['dokter'] = $this->db->get('dokter')->result_array();
+
+
+        $this->load->view('template/header', $data);
+        $this->load->view('template/sidebar', $data);
+        $this->load->view('user/insert_pemeriksaan', $data);
+        $this->load->view('template/footer');
+    }
+    public function aksi_insert_pemeriksaan()
+    {
+        $id_kajian_awal = $this->input->post('id_kajian_awal');
+        $id_dokter = $this->input->post('id_dokter');
+        $tanggal_jam = $this->input->post('tanggal_jam');
+        $umur = $this->input->post('umur');
+        $anamnese_pemeriksaan_diagnosis = $this->input->post('anamnese_pemeriksaan_diagnosis');
+        $rencana_pelayanan_dan_therapi = $this->input->post('rencana_pelayanan_dan_therapi');
+        $date_created = $this->input->post('date_created');
+
+        $sql = "INSERT INTO pemeriksaan (id, id_kajian_awal, id_dokter,tanggal_jam, umur, anamnese_pemeriksaan_diagnosis,rencana_pelayanan_dan_therapi, date_created, update_created)
+                VALUES ('','$id_kajian_awal', '$id_dokter', '$tanggal_jam', '$umur','$anamnese_pemeriksaan_diagnosis','$rencana_pelayanan_dan_therapi','$date_created', NULL)";
+        $this->db->query($sql);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert" >' . $sql .
+            '</div>');
+        redirect('user/insert_pemeriksaan');
+    }
+    public function update_pemeriksaan($id)
+    {
+        $data['title'] = "Pemeriksaan";
+        $sql = "SELECT * FROM pemeriksaan WHERE pemeriksaan.id = $id";
+        $data['pemeriksaan'] = $this->db->query($sql)->row_array();
+        $data['dokter'] = $this->db->get('dokter')->result_array();
+        $data['kajian_awal'] = $this->db->get('kajian_awal')->result_array();
+        $data['query'] = "SELECT * FROM pemeriksaan WHERE pemeriksaan.id = $id";
+
+        $this->load->view('template/header', $data);
+        $this->load->view('template/sidebar', $data);
+        $this->load->view('user/update_pemeriksaan', $data);
+        $this->load->view('template/footer');
+    }
+    public function aksi_update_pemeriksaan()
+    {
+        $id = $this->input->post('id');
+        $id_kajian_awal = $this->input->post('id_kajian_awal');
+        $id_dokter = $this->input->post('id_dokter');
+        $tanggal_jam = $this->input->post('tanggal_jam');
+        $umur = $this->input->post('umur');
+        $anamnese_pemeriksaan_diagnosis = $this->input->post('anamnese_pemeriksaan_diagnosis');
+        $rencana_pelayanan_dan_therapi = $this->input->post('rencana_pelayanan_dan_therapi');
+        $date_created = $this->input->post('date_created');
+        $update_created = $this->input->post('update_created');
+
+        $sql = "UPDATE pemeriksaan
+                SET id_kajian_awal = '$id_kajian_awal',id_dokter = '$id_dokter',tanggal_jam = '$tanggal_jam',umur = '$umur',anamnese_pemeriksaan_diagnosis = '$anamnese_pemeriksaan_diagnosis',rencana_pelayanan_dan_therapi='$rencana_pelayanan_dan_therapi', date_created = '$date_created', update_created = '$update_created'
+                WHERE pemeriksaan.id = $id";
+
+        $this->db->query($sql);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert" >' . $sql .
+
+            '</div>');
+        redirect('user/update_pemeriksaan/' . $id);
+    }
+    public function delete_pemeriksaan($id)
+    {
+        $sql = "DELETE FROM pemeriksaan WHERE pemeriksaan.id = $id";
+        $this->db->query($sql);
+
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert" >' . $sql .
+
+            '</div>');
+        redirect('user/pemeriksaan');
+    }
 }

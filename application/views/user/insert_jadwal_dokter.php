@@ -13,10 +13,27 @@
             <div class="card shadow p-3">
                 <?= $this->session->flashdata('message');  ?>
                 <h3 class="my-2">Insert <?= $title ?></h3>
-                <form action="<?= base_url('user/aksi_insert_poli') ?>" method="POST">
+                <form action="<?= base_url('user/aksi_insert_jadwal_dokter') ?>" method="POST">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">nama_poli</label>
-                        <input type="text" class="form-control" id="nama_poli" name="nama_poli" required>
+                        <label for="exampleInputEmail1">id_dokter</label>
+                        <select class="form-control" id="id_dokter" name="id_dokter">
+                            <option value="" selected disabled>Pilih id_dokter</option>
+                            <?php foreach ($dokter as $d) : ?>
+                                <option value="<?= $d['id']; ?>"><?= $d['id']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">hari</label>
+                        <input type="text" class="form-control" id="hari" name="hari" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">dari_jam</label>
+                        <input type="time" class="form-control" id="dari_jam" name="dari_jam" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">sampai_jam</label>
+                        <input type="time" class="form-control" id="sampai_jam" name="sampai_jam" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">date_created</label>
@@ -27,7 +44,7 @@
                         <input type="email" class="form-control" id="update_created" value="NULL" name="update_created" readonly>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href="<?= base_url('user/poli') ?>" class="btn btn-secondary">Kembali</a>
+                    <a href="<?= base_url('user/jadwal_dokter') ?>" class="btn btn-secondary">Kembali</a>
                 </form>
             </div>
         </div>
